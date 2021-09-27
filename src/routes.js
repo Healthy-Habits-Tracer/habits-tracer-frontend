@@ -16,15 +16,19 @@
 
 */
 import Dashboard from "views/Dashboard.js";
-import Icons from "views/Icons.js";
-import Map from "views/Map.js";
-import Notifications from "views/Notifications.js";
-import Rtl from "views/Rtl.js";
-import TableList from "views/TableList.js";
-import Typography from "views/Typography.js";
+import Sleep from "views/Sleep.js";
+import Water from "views/Water.js";
+import Walk from "views/Walk.js";
+import ContactUs from "views/ContactUs.js";
+import HealthyTips from "views/HealthyTips.js";
+import Products from "views/Products.js";
 import UserProfile from "views/UserProfile.js";
+import AboutUs from "views/AboutUs.js"
+
+
 
 var routes = [
+ 
   {
     path: "/dashboard",
     name: "Dashboard",
@@ -34,27 +38,27 @@ var routes = [
     layout: "/admin",
   },
   {
-    path: "/icons",
-    name: "Icons",
-    rtlName: "الرموز",
-    icon: "tim-icons icon-atom",
-    component: Icons,
+    path: "/sleep",
+    name: "Get Good Sleep",
+    rtlName: "Get Good Sleep",
+    icon: "tim-icons icon-time-alarm",
+    component: Sleep,
     layout: "/admin",
   },
   {
-    path: "/map",
-    name: "Map",
-    rtlName: "خرائط",
-    icon: "tim-icons icon-pin",
-    component: Map,
+    path: "/water",
+    name: "Drink Water",
+    rtlName: "Drink Water",
+    icon: "tim-icons icon-trophy",
+    component: Water,
     layout: "/admin",
   },
   {
-    path: "/notifications",
-    name: "Notifications",
-    rtlName: "إخطارات",
-    icon: "tim-icons icon-bell-55",
-    component: Notifications,
+    path: "/walk",
+    name: "Go for a Walk",
+    rtlName: "Go for a Walk",
+    icon: "tim-icons icon-user-run",
+    component: Walk,
     layout: "/admin",
   },
   {
@@ -66,28 +70,36 @@ var routes = [
     layout: "/admin",
   },
   {
-    path: "/tables",
-    name: "Table List",
-    rtlName: "قائمة الجدول",
-    icon: "tim-icons icon-puzzle-10",
-    component: TableList,
+    path: "/healthy-tips",
+    name: "Healthy Tips",
+    rtlName: "Healthy Tips",
+    icon: "tim-icons icon-bulb-63",
+    component: HealthyTips,
     layout: "/admin",
   },
   {
-    path: "/typography",
-    name: "Typography",
-    rtlName: "طباعة",
-    icon: "tim-icons icon-align-center",
-    component: Typography,
+    path: "/products",
+    name: "Our Products",
+    rtlName: "Products",
+    icon: "tim-icons icon-cart",
+    component: Products,
     layout: "/admin",
   },
   {
-    path: "/rtl-support",
-    name: "RTL Support",
-    rtlName: "ار تي ال",
-    icon: "tim-icons icon-world",
-    component: Rtl,
-    layout: "/rtl",
+    path: "/contact-us",
+    name: "Contact Us",
+    rtlName: "Contact Us",
+    icon: "tim-icons icon-email-85",
+    component: ContactUs,
+    layout: "/admin",
+  },
+  {
+    path: "/about-us",
+   // name: "About Us",
+   // rtlName: "About Us",
+    
+    component: AboutUs,
+    layout: "/admin",
   },
 ];
 export default routes;

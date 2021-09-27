@@ -17,7 +17,7 @@
 */
 /*eslint-disable*/
 import React from "react";
-
+import { Link } from "react-router-dom";
 // reactstrap components
 import { Container, Nav, NavItem, NavLink } from "reactstrap";
 
@@ -27,17 +27,17 @@ function Footer() {
       <Container fluid>
         <Nav>
           <NavItem>
-            <NavLink href="https://www.creative-tim.com/?ref=bdr-user-archive-footer">
-              Creative Tim
+            <NavLink href="https://habits-tracer-frontend.netlify.app/">
+              Habits Tracker
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="https://www.creative-tim.com/presentation?ref=bdr-user-archive-footer">
+            <Link to="/admin/about-us" style={{color:"white"}}>
               About Us
-            </NavLink>
+            </Link>
           </NavItem>
           <NavItem>
-            <NavLink href="https://www.creative-tim.com/blog?ref=bdr-user-archive-footer">
+            <NavLink href="https://www.becomingminimalist.com/habits-to-change-your-life/"  target="_blank">
               Blog
             </NavLink>
           </NavItem>
@@ -46,12 +46,12 @@ function Footer() {
           © {new Date().getFullYear()} made with{" "}
           <i className="tim-icons icon-heart-2" /> by{" "}
           <a
-            href="https://www.creative-tim.com/?ref=bdr-user-archive-footer"
+            href="https://habits-tracer-frontend.netlify.app/"
             target="_blank"
           >
-            Creative Tim
+            Habits Tracker
           </a>{" "}
-          for a better web.
+          for enhance your habit-building process.
         </div>
       </Container>
     </footer>

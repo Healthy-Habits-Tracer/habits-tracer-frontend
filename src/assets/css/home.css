@@ -1,0 +1,27 @@
+body{
+    background-image: url("assets/HabitImg/h5.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:100%;
+    width:100%;
+
+}
+.logoDiv{
+    display: grid;
+    grid-template-columns: 50px auto;
+    margin: 20px 10px;
+   
+}
+.logofont{
+    font-size: x-large;
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;
+    color: "#0F044C";
+
+}
+.headerDiv{
+    display: grid;
+    grid-template-columns: 1100px auto;
+    color: "#0F044C";
+}
+
