@@ -109,8 +109,8 @@ function Admin(props) {
             <Sidebar
               routes={routes}
               logo={{
-                outterLink: "https://www.creative-tim.com/",
-                text: "Creative Tim",
+                outterLink: "https://habits-tracer-frontend.netlify.app/",
+                text: "Habits Tracker",
                 imgSrc: logo,
               }}
               toggleSidebar={toggleSidebar}
