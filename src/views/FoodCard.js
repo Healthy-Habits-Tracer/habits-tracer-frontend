@@ -22,18 +22,7 @@ import axios from 'axios';
             this.setState({
                 foodDetails:foodDetailsArr
             })
-        //     console.log(this.state.booksData);
-        //   await axios.get(`https://api.edamam.com/api/food-database/v2/parser?app_id=${process.env.REACT_APP_Edamam_APP_ID}&app_key=${process.env.REACT_APP_Edamam_App_KEY}&ingr=${ingr}`).then(async (Res) => {
-        //     //console.log('FoodDetails' + Res.data);
-        //     foodDetailsArr.push(Res.data.parsed);    
-        //     Res.data.length > 0 ? this.setState({
-        //       foodDetails: foodDetailsArr,               
-        //    }) : this.setState({
-        //      foodDetails: []
-        //    })       
-        //   }).catch((error) => {
-        //     console.warn('error, talking with my server');
-        //   })
+        
         })//foreach end
        
        
