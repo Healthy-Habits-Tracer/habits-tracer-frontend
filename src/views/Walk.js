@@ -1,21 +1,30 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import WaterForm from './WaterForm';
- class Walk extends Component {
+class Walk extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: [],
-      userData:[],
+      userData: [],
       userEmails: [],
       email: "",
       quantity: 0,
       date: Date,
-      name:'',
-      habit:'',
-      pixel:{}
+      name: '',
+      habit: '',
+      pixel: {}
     }
   }
+  componentDidMount = () => {
+    axios
+      .get(`${process.env.REACT_APP_BACKEND_PORT}/user`) // for showing data at page loadd
+      .then((res) => {
+        this.setState({
+          data: res.data,
+        });
+      });
+  };
   handleDate = (e) => {
     this.setState({
       date: e.target.value,
@@ -41,25 +50,25 @@ import WaterForm from './WaterForm';
         {
           exercise: {
             date: `${this.state.date}`,
-            quantity: `${this.state.quantity}`, 
+            quantity: `${this.state.quantity}`,
           },
         }
       )
       .then((res) => {
         this.setState({
           userData: res.data,
-          pixel:{"date": this.state.date.split('-').join(''), "quantity": `${this.state.quantity}`}
-                });
-      }).then(()=>{
+          pixel: { "date": this.state.date.split('-').join(''), "quantity": `${this.state.quantity}` }
+        });
+      }).then(() => {
         this.CreatePixel(this.state.pixel);
         // this.reloadIFrame();
-      });    
+      });
   };
 
   render() {
     return (
       <div className="content">
- <WaterForm handleDate = {this.handleDate} handleCheckBox = {this.handleCheckBox} UpdateHabit = {this.UpdateHabit}/>
+        <WaterForm handleDate={this.handleDate} handleCheckBox={this.handleCheckBox} UpdateHabit={this.UpdateHabit} />
       </div>
     )
   }
