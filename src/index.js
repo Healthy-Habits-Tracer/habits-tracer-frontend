@@ -51,7 +51,6 @@ import HomePage from "./components/homepage.js"
 import App from "App";
 
 ReactDOM.render(
-
 <Auth0Provider
     domain={`dev-35i0ibe7.us.auth0.com`}
     clientId={`uqSOedMRIEudQUlX7dc3HoieE9F76fUn`}
