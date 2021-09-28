@@ -38,7 +38,7 @@ import {
   NavbarToggler,
   ModalHeader,
 } from "reactstrap";
-
+import LogoutButton from "components/LogoutButton"
 function AdminNavbar(props) {
   const [collapseOpen, setcollapseOpen] = React.useState(false);
   const [modalSearch, setmodalSearch] = React.useState(false);
@@ -168,7 +168,7 @@ function AdminNavbar(props) {
                   </NavLink>
                   <DropdownItem divider tag="li" />
                   <NavLink tag="li">
-                    <DropdownItem className="nav-item">Log out</DropdownItem>
+                    <DropdownItem className="nav-item"><LogoutButton/></DropdownItem>
                   </NavLink>
                 </DropdownMenu>
               </UncontrolledDropdown>

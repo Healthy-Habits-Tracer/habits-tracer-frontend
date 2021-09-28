@@ -7,8 +7,8 @@ export class App extends Component {
     render() {
         return (
             <div>
-                <LoginButton />
-                <LogoutButton />
+                {/* <LoginButton />
+                <LogoutButton /> */}
             </div>
         )
     }

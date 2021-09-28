@@ -12,14 +12,17 @@ import React, { Component } from 'react'
             name="trip-start"
             onChange={this.props.handleDate}
           />
-          <input
+          
+          {/* <input
             type="checkbox"
             id="walk"
             name="walk"
             value="walk"
             onClick={this.props.handleCheckBox}
-          />
+          /> */}
+          <br/>
           <label for="walk">Walk for 30 min</label>
+
           <input
             type="checkbox"
             id="walk1"
@@ -27,6 +30,7 @@ import React, { Component } from 'react'
             value="walk"
             onClick={this.props.handleCheckBox}
           />
+          <br/>
           <label for="walk">Warm up before exercise</label>
           <input
             type="checkbox"
@@ -35,6 +39,7 @@ import React, { Component } from 'react'
             value="walk"
             onClick={this.props.handleCheckBox}
           />
+          <br/>
           <label for="walk">Exercise with a friend</label>
           <input
             type="checkbox"
@@ -43,6 +48,7 @@ import React, { Component } from 'react'
             value="walk"
             onClick={this.props.handleCheckBox}
           />
+          <br/>
           <label for="walk">Plan exercise into your day.</label>
           <input
             type="checkbox"
@@ -51,6 +57,7 @@ import React, { Component } from 'react'
             value="walk"
             onClick={this.props.handleCheckBox}
           />
+          <br/>
           <label for="walk">Eat healthy food</label>
           <input
             type="checkbox"
@@ -59,6 +66,7 @@ import React, { Component } from 'react'
             value="walk"
             onClick={this.props.handleCheckBox}
           />
+          <br/>
           <button onClick={this.props.UpdateHabit}>Save</button>
         </form>   
             </div>
