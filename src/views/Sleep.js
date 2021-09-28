@@ -17,6 +17,15 @@ import SleepForm from './SleepForm';
       pixel:{}
     }
   }
+  componentDidMount = () => {
+    axios
+      .get(`${process.env.REACT_APP_BACKEND_PORT}/user`) // for showing data at page loadd
+      .then((res) => {
+        this.setState({
+          data: res.data,
+        });
+      });
+  };
   handleDate = (e) => {
     this.setState({
       date: e.target.value,
