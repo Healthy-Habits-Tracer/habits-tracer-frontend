@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import "assets/css/home.css";
-import { withAuth0 } from '@auth0/auth0-react';
+//import { withAuth0 } from '@auth0/auth0-react';
 
 class homepage extends Component {
     constructor(props) {
@@ -10,26 +10,7 @@ class homepage extends Component {
              
         }
       }
-    callApi = () => {
-        if(this.props.auth0.isAuthenticated) {
-          this.props.auth0.getIdTokenClaims()
-          .then(res => {
-            const jwt = res.__raw;
-            const config = {
-              headers: {"Authorization" : `Bearer ${jwt}`},
-              method: 'get',
-              baseURL: process.env.REACT_APP_BACKEND_URL,
-              url: '/auth'
-            }
-            axios(config)
-              .then(result => console.log(result.data))
-              .catch(err => console.error(err));
-          })
-          .catch(err => console.error(err));
-        }else{
-          console.log("user is not authenticated")
-        }
-      }
+  
     render() {
         return (
             <>
@@ -89,7 +70,7 @@ class homepage extends Component {
                     <p><h4 style={{ color: "#0F044C", fontSize: "30px", marginLeft: "10px" }}>Start your journey in less than 3 minutes!</h4></p>
                     <br />
 
-                    this.props.auth0.isAuthenticated ? <Link style={{ backgroundColor: "#04009A", color: "White", fontSize: "25px", marginLeft: "10px", padding: "10px 10px" }} to="/admin/dashboard">Get Started</Link> :<LoginButton />
+                    <Link style={{ backgroundColor: "#04009A", color: "White", fontSize: "25px", marginLeft: "10px", padding: "10px 10px" }} to="/admin/dashboard">Get Started</Link> 
                     
 
                 </div>
@@ -101,5 +82,5 @@ class homepage extends Component {
     }
 }
 
-export default withAuth0(homepage)
+export default homepage
 
