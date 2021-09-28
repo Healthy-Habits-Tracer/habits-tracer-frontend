@@ -9,8 +9,8 @@ import React, { Component } from 'react'
     render() {
         return (
             <div>
-                <form>
-          <label for="start">select date:</label>
+          <form>
+          <label for="start">Select date:</label>
           <input
             type="date"
             id="start"
