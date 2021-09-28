@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import "assets/css/home.css";
+//import { withAuth0 } from '@auth0/auth0-react';
 
 class homepage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+             
+        }
+      }
+  
     render() {
         return (
             <>
@@ -61,7 +69,9 @@ class homepage extends Component {
                     <p><h2 style={{ color: "#0F044C", fontWeight: "bold", fontSize: "30px", marginLeft: "10px" }}>Get the Keys</h2></p>
                     <p><h4 style={{ color: "#0F044C", fontSize: "30px", marginLeft: "10px" }}>Start your journey in less than 3 minutes!</h4></p>
                     <br />
-                    <Link style={{ backgroundColor: "#04009A", color: "White", fontSize: "25px", marginLeft: "10px", padding: "10px 10px" }} to="/admin/dashboard">Get Started</Link>
+
+                    <Link style={{ backgroundColor: "#04009A", color: "White", fontSize: "25px", marginLeft: "10px", padding: "10px 10px" }} to="/admin/dashboard">Get Started</Link> 
+                    
 
                 </div>
                 <br /><br /><br />
