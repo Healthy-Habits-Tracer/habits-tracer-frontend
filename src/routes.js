@@ -70,8 +70,8 @@ var routes = [
     layout: "/admin",
   },
   {
-    path: "/healthy-tips",
-    name: "Healthy Tips",
+    path: "/healthy-foods",
+    name: "Healthy Foods",
     rtlName: "Healthy Tips",
     icon: "tim-icons icon-bulb-63",
     component: HealthyTips,

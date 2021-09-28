@@ -1,33 +1,70 @@
-/*!
+import React, { Component } from 'react'
+import axios from 'axios';
+import FoodCard from './FoodCard';
 
-=========================================================
-* Black Dashboard React v1.2.0
-=========================================================
+class HealthyTips extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      q: '',
+      foodList:[],
+      foodDetails:[],
+      ShowCard:false
+    }
+    
+  }
+  
+ 
+  handleSubmit = (e) => {
+    e.preventDefault();
+   
+    axios.get(`https://api.edamam.com/auto-complete?app_id=${process.env.REACT_APP_Edamam_APP_ID}&app_key=${process.env.REACT_APP_Edamam_App_KEY}&q=${this.state.q}`).then((response) => {
+      //console.log('FoodList' +response.data);
+      response.data.length > 0 ? this.setState({
+        foodList: response.data,
+        ShowCard:true
+      }) : this.setState({
+        foodList: []
+      })
+    }).catch((error) => {
+      console.warn('error, talking with my server');
+    });
 
-* Product Page: https://www.creative-tim.com/product/black-dashboard-react
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/black-dashboard-react/blob/master/LICENSE.md)
 
-* Coded by Creative Tim
+  }//function end
 
-=========================================================
+  handleFood = (e) => {
+    let food = e.target.value;
+    this.setState({
+      q: food
+    })
+  }
 
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
-import React from "react";
-
-// reactstrap components
-
-
-function HealthyTips() {
-  return (
-    <>
+  render() {
+    return (
+      <>
       <div className="content">
-      
+    
+        <form onSubmit={this.handleSubmit}>
+          <label>Find something to cook</label>
+          <br />
+          <input id="txtFood"
+            type="text"
+            placeholder="Salad"
+            onChange={this.handleFood}
+          />
+          <input type="submit" value="Explore!" />
+        </form>
+        
+        {this.state.ShowCard? <FoodCard foodList={this.state.foodList}/> :''   }     
+     
       </div>
-    </>
-  );
+      </>
+    )
+  
+  }
 }
 
-export default HealthyTips;
+export default HealthyTips
+
+
