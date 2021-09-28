@@ -4,6 +4,8 @@ import axios from 'axios';
 import SleepForm from './SleepForm';
 import DataButton from 'components/DataButton';
 import { withAuth0 } from '@auth0/auth0-react';
+import Client from 'pixela-node'
+const client = new Client()
  class Sleep extends Component {
   constructor(props) {
     super(props);
@@ -19,6 +21,51 @@ import { withAuth0 } from '@auth0/auth0-react';
       pixel:{}
     }
   }
+
+//............................handle client API PIXELA NODE...........................//
+getCreateUserApi(username,token){
+  client.username = username.toLowerCase();
+  client.token = token;
+  console.log(client.username)
+ // Create User
+  client
+    .createUser({
+      token: client.token,
+      username: client.username ,
+      agreeTermsOfService: 'yes',
+      notMinor: 'yes'
+    })
+    .then(res => console.log(res.data))
+    .catch(e => console.log(e.response.data))
+    // Create Graph
+    this.createGraphApi();
+
+}
+createGraphApi(){
+// Create Graph
+client
+  .createGraph({
+    id: "sleep",
+    name: 'sleep',
+    unit: 'score',
+    type: 'int',
+    color: 'shibafu'
+  })
+  .then(res => console.log(res.data))
+  .catch(e => console.log(e.response.data))
+}
+CreatePixel(pixel){
+client.createPixel("sleep",pixel).then(res => console.log(res.data))
+.catch(e => console.log(e.res.data))}
+
+deletePixel(graphId, date) {
+  client.deletePixel(graphId,date).then(res => console.log(res.data)).catch(e => console.log(e.response.data))
+}
+getGraphApi(){
+// Get Graphs
+client.getGraphs().then(res => console.log(res.data))
+}
+
   componentDidMount = () => {
     axios
       .get(`${process.env.REACT_APP_BACKEND_PORT}/user`) // for showing data at page loadd
@@ -52,7 +99,7 @@ import { withAuth0 } from '@auth0/auth0-react';
       .put(
         `${process.env.REACT_APP_BACKEND_PORT}/update-user/${this.state.email}`,
         {
-          exercise: {
+          sleep: {
             date: `${this.state.date}`,
             quantity: `${this.state.quantity}`, 
           },
@@ -68,6 +115,11 @@ import { withAuth0 } from '@auth0/auth0-react';
         // this.reloadIFrame();
       });    
   };
+
+  handleDeletePixel =(deleteDate)=>{
+    this.deletePixel('sleep',deleteDate)
+
+  }
 
 
   handleAuth0 = async () => {
@@ -105,6 +157,10 @@ import { withAuth0 } from '@auth0/auth0-react';
       <div className="content">
         <DataButton  handleAuth0 = {this.handleAuth0}/>
         <SleepForm handleDate = {this.handleDate} handleCheckBox = {this.handleCheckBox} UpdateHabit = {this.UpdateHabit}/>
+        {this.state.name && <button onClick={this.getCreateUserApi(this.state.name.split(" ").join(''),'12345678')} >create sleep Graph</button>}
+        <button onClick={()=>this.handleDeletePixel(this.state.date.split("-").join(""))}> delete day</button>
+ {this.state.name && 
+<iframe id='pixelaFram' src={`https://pixe.la/v1/users/${this.state.name.split(" ").join('')}/graphs/sleep.html`} title="description" style={{"width" :'700px', 'height':'450px'}}></iframe>}
       
       </div>
     )

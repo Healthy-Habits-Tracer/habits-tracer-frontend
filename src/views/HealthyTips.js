@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import FoodCard from './FoodCard';
-
+import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
+import "assets/css/home.css";
 class HealthyTips extends Component {
   constructor(props) {
     super(props);
@@ -10,11 +11,11 @@ class HealthyTips extends Component {
       foodList: [],
       foodDetails: [],
       ShowCard: false,
-      image:"", 
-     label:"",
-      FAT:'',
-      ENERC_KCAL:'',
-     category:''
+      image: "",
+      label: "",
+      FAT: '',
+      ENERC_KCAL: '',
+      category: ''
     }
 
   }
@@ -22,7 +23,7 @@ class HealthyTips extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    
+
     axios.get(`https://api.edamam.com/auto-complete?app_id=${process.env.REACT_APP_Edamam_APP_ID}&app_key=${process.env.REACT_APP_Edamam_App_KEY}&q=${this.state.q}`).then((response) => {
       // console.log('FoodList' +response.data);
       response.data.length > 0 ? this.setState({
@@ -31,10 +32,10 @@ class HealthyTips extends Component {
       }) : this.setState({
         foodList: []
       })
-      let select = document.getElementById("selectNumber"); 
-      for(let i = 0; i < this.state.foodList.length; i++) {
+      let select = document.getElementById("selectNumber");
+      for (let i = 0; i < this.state.foodList.length; i++) {
         //console.log( response.data[i]);
-        let opt =this.state.foodList[i];
+        let opt = this.state.foodList[i];
         let el = document.createElement("option");
         el.textContent = opt;
         el.value = opt;
@@ -44,7 +45,7 @@ class HealthyTips extends Component {
     }).catch((error) => {
       console.warn('error, talking with my server');
     });
-  
+
   }//function end
 
   handleFood = (e) => {
@@ -57,13 +58,13 @@ class HealthyTips extends Component {
   }//function end
 
   handleDetails = (e) => {
-    let select = document.getElementById("selectNumber"); 
+    let select = document.getElementById("selectNumber");
     let ingr = select.value;//select.options[select.selectedIndex].innerHTML;
-    console.log("ingr " +ingr);
+    console.log("ingr " + ingr);
     //let ingr = e.target.value;
-    
+
     axios.get(`https://api.edamam.com/api/food-database/v2/parser?app_id=${process.env.REACT_APP_Edamam_APP_ID}&app_key=${process.env.REACT_APP_Edamam_App_KEY}&ingr=${ingr}`).then((res) => {
-      
+      // res.data.hints
       res.data.hints.length > 0 ? this.setState({
         foodDetails: res.data.hints,
         ShowCard: true,
@@ -78,7 +79,7 @@ class HealthyTips extends Component {
     }).catch((error) => {
       console.warn('error, talking with my server');
     });
-    console.log('foodDetails' +this.state.foodDetails);
+    console.log('foodDetails' + this.state.foodDetails);
 
   }//function end​
 
@@ -100,18 +101,22 @@ class HealthyTips extends Component {
             <select id="selectNumber" >
               <option>Choose a food</option>
             </select>
-            
+
             <button onClick={this.handleDetails}>See More Details</button>
           </form>
+          <br />
+<div className="ULDiv">
+<ul style={{ display: "inline" }}>
+                  {
+                    this.state.foodDetails.map((item) => {
+                      console.log('item' + item);
+                      return <FoodCard foodlist={item.food} />
+                    })
 
-          {
-            this.state.foodDetails.map((item)=>{
-             console.log('item' + item.food);
-              return <FoodCard foodlist={item.food}/>
-            })
-           
-          }
-
+                  }
+                  </ul>
+                  </div>
+                  
         </div>
       </>
     )

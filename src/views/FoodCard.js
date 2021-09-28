@@ -16,32 +16,26 @@ class FoodCard extends Component {
 
   }
 
-   
+
   render() {
     return (
       <>
-         <Row>
-      <Col >
-          <Card>
-              <CardHeader>
 
-              </CardHeader>
-              <CardBody className="all-icons">
-                  <Row>
-                      <Col >
-                         
-                          <img src={this.props.foodlist.image} alt="" style={{ width: "40px", height: "40px" }} />
-                          <h6> {this.props.foodlist.label}</h6>
-                          <h6>{this.props.foodlist.food.FAT}|{this.props.foodDetails.food.ENERC_KCAL}</h6>
-                          <h6> {this.props.foodlist.category}</h6>
-                      </Col>
 
-                  </Row>
-              </CardBody>
-          </Card>
-      </Col>
-  </Row>
+        <li style={{ display: "inline" }}>
+
+
+          <img src={this.props.foodlist.image} alt="" style={{ width: "300px", height: "300px" }} />
+          <h6> {this.props.foodlist.label}</h6>
+          <h6> {this.props.foodlist.category}</h6>
+
+          {/* {this.props.foodlist.nutrients.FAT}{this.props.foodDetails.nutrients.ENERC_KCAL} */}
+
+        </li>
+
+
       </>
+
     )
 
   }

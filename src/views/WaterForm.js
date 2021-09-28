@@ -12,13 +12,15 @@ import React, { Component } from 'react'
             name="trip-start"
             onChange={this.props.handleDate}
           />
-          <input
+          <br/>
+          {/* <input
             type="checkbox"
             id="water"
             name="water"
             value="water"
             onClick={this.props.handleCheckBox}
-          />
+          /> */}
+
           <label for="water">8 cups a day</label>
           <input
             type="checkbox"
@@ -27,6 +29,7 @@ import React, { Component } from 'react'
             value="water"
             onClick={this.props.handleCheckBox}
           />
+          <br/>
           <label for="water">8 cups a day</label>
           <input
             type="checkbox"
@@ -35,6 +38,7 @@ import React, { Component } from 'react'
             value="water"
             onClick={this.props.handleCheckBox}
           />
+          <br/>
           <label for="water">8 cups a day</label>
           <input
             type="checkbox"
@@ -43,6 +47,7 @@ import React, { Component } from 'react'
             value="water"
             onClick={this.props.handleCheckBox}
           />
+          <br/>
           <label for="water">8 cups a day</label>
           <input
             type="checkbox"
@@ -51,8 +56,10 @@ import React, { Component } from 'react'
             value="water"
             onClick={this.props.handleCheckBox}
           />
-          <label for="water">8 cups a day</label>
+          <br/>
+          {/* <label for="water">8 cups a day</label> */}
           <button onClick={this.props.UpdateHabit}>Save</button>
+          <br/>
         </form>
             </div>
         )

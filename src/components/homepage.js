@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import "assets/css/home.css";
-//import { withAuth0 } from '@auth0/auth0-react';
+import LoginButton from "components/LoginButton";
+import { withAuth0 } from '@auth0/auth0-react';
 
 class homepage extends Component {
     constructor(props) {
@@ -27,6 +28,15 @@ class homepage extends Component {
                     </div>
 
                     <ul style={{ display:"inline",  margin: "20px 10px"}} >
+                        { this.props.auth0.isAuthenticated ?   
+                        <li  style={{ display:"inline",  margin: "20px 10px"}}>
+                             <img alt="facebook"
+                                    src={require("assets/HabitImg/db.png").default}
+                                    style={{ width: "40px", height: "40px" }} />
+                          <Link style={{color: "#0F044C", fontWeight:"bold" }} to="/admin/dashboard">Go to Dashboard</Link> 
+                        </li>
+                        :''
+                        }
                         <li  style={{ display:"inline",  margin: "20px 10px"}}>
                             <a href="#" style={{ color: "#0F044C",fontWeight:"bold"}}>
                                 <img alt="facebook"
@@ -69,8 +79,8 @@ class homepage extends Component {
                     <p><h2 style={{ color: "#0F044C", fontWeight: "bold", fontSize: "30px", marginLeft: "10px" }}>Get the Keys</h2></p>
                     <p><h4 style={{ color: "#0F044C", fontSize: "30px", marginLeft: "10px" }}>Start your journey in less than 3 minutes!</h4></p>
                     <br />
-
-                    <Link style={{ backgroundColor: "#04009A", color: "White", fontSize: "25px", marginLeft: "10px", padding: "10px 10px" }} to="/admin/dashboard">Get Started</Link> 
+                    <LoginButton />
+                    {/*   */}
                     
 
                 </div>
@@ -82,5 +92,5 @@ class homepage extends Component {
     }
 }
 
-export default homepage
+export default withAuth0(homepage)
 
