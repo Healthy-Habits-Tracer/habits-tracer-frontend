@@ -4,7 +4,8 @@ export class DataButton extends Component {
     render() {
         return (
             <div>
-            <button onClick={this.props.handleAuth0}>auth0</button>
+            <button onClick={this.props.handleAuth0}>Show Results</button>
+           
             </div>
         )
     }
