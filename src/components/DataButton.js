@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-
+import {Button} from "reactstrap"
 export class DataButton extends Component {
     render() {
         return (
             <div>
-            <button onClick={this.props.handleAuth0}>Show Results</button>
+             <Button className="btn-fill" color="primary" type="submit" onClick={this.props.handleAuth0}>Show Results</Button>
            
             </div>
         )
