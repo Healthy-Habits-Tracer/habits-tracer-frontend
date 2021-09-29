@@ -52,9 +52,9 @@ import App from "App";
 
 ReactDOM.render(
 <Auth0Provider
-    domain={`dev-35i0ibe7.us.auth0.com`}
-    clientId={`uqSOedMRIEudQUlX7dc3HoieE9F76fUn`}
-    redirectUri={`http://localhost:3000/`}
+    domain={`${process.env.REACT_APP_AUTH0_DOMAIN}`}
+    clientId={`${process.env.REACT_APP_AUTH0_CLIENTID}`}
+    redirectUri={`${process.env.REACT_APP_AUTH0_REDIRECTURI}`}
   >
     <App />
     <ThemeContextWrapper>

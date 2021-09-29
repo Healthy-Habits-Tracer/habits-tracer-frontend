@@ -157,6 +157,7 @@ client.getGraphs().then(res => console.log(res.data))
       <div className="content">
     
       <DataButton  handleAuth0 = {this.handleAuth0}/>
+      <br/>
         <WaterForm handleDate = {this.handleDate} handleCheckBox = {this.handleCheckBox} UpdateHabit = {this.UpdateHabit}/>
         {this.state.name && <button onClick={this.getCreateUserApi(this.state.name.split(" ").join(''),'12345678')} >Show my results</button>}
         <button onClick={()=>this.handleDeletePixel(this.state.date.split("-").join(""))}> delete day</button>

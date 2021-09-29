@@ -156,6 +156,7 @@ client.getGraphs().then(res => console.log(res.data))
     return (
       <div className="content">
         <DataButton  handleAuth0 = {this.handleAuth0}/>
+        <br/>
         <SleepForm handleDate = {this.handleDate} handleCheckBox = {this.handleCheckBox} UpdateHabit = {this.UpdateHabit}/>
         {this.state.name && <button onClick={this.getCreateUserApi(this.state.name.split(" ").join(''),'12345678')} >create sleep Graph</button>}
         <button onClick={()=>this.handleDeletePixel(this.state.date.split("-").join(""))}> delete day</button>
