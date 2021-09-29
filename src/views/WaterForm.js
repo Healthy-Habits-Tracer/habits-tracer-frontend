@@ -21,7 +21,7 @@ import React, { Component } from 'react'
             value="water"
             onClick={this.props.handleCheckBox}
           />
-
+   <br/>
           <label for="water">distribute water drinking over the day</label>
           <input
             type="checkbox"
