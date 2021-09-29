@@ -4,6 +4,7 @@ import WaterForm from './WaterForm';
 import DataButton from 'components/DataButton';
 import { withAuth0 } from '@auth0/auth0-react';
 import Client from 'pixela-node'
+import { Button } from 'reactstrap';
 const client = new Client()
  class Water extends Component {
   constructor(props) {
@@ -159,8 +160,8 @@ client.getGraphs().then(res => console.log(res.data))
       <DataButton  handleAuth0 = {this.handleAuth0}/>
       <br/>
         <WaterForm handleDate = {this.handleDate} handleCheckBox = {this.handleCheckBox} UpdateHabit = {this.UpdateHabit}/>
-        {this.state.name && <button onClick={this.getCreateUserApi(this.state.name.split(" ").join(''),'12345678')} >Show my results</button>}
-        <button onClick={()=>this.handleDeletePixel(this.state.date.split("-").join(""))}> delete day</button>
+        {this.state.name &&  <Button className="btn-fill" color="primary" type="submit" onClick={this.getCreateUserApi(this.state.name.split(" ").join(''),'12345678')} >Show my results</Button>}
+        <Button className="btn-fill" color="primary" type="submit" onClick={()=>this.handleDeletePixel(this.state.date.split("-").join(""))}> delete day</Button>
  {this.state.name && 
 <iframe id='pixelaFram' src={`https://pixe.la/v1/users/${this.state.name.split(" ").join('')}/graphs/water.html`} title="description" style={{"width" :'700px', 'height':'450px'}}></iframe>}
       
